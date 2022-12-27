@@ -12,7 +12,9 @@ const server = http.createServer((req, res) => {
   if (myUrl.pathname == "/todolist") {
     res.end(JSON.stringify(todoList));
   } else if (myUrl.pathname == "/todolist?no=1") {
-    res.end(JSON.stringify(todoList[0]));
+    let no = myUrl.searchParams.get("no");
+    res.end(JSON.stringify(todoList[no]));
+    console.log(no);
   }
 });
 server.listen(3000, () => {

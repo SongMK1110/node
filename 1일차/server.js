@@ -15,6 +15,7 @@ const server = http.createServer((req, res) => {
     let userid = myurl.searchParams.get("userid");
     res.end(info(userid));
   } else if (myurl.pathname == "/boardReg") {
+    //res.write();
     res.end(boardReg());
   } else if (myurl.pathname == "/userReg") {
     res.end(userReg());
