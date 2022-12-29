@@ -50,12 +50,17 @@ function insert() {
 //수정
 function customerUpdate() {
   updbtn.addEventListener("click", function () {
-    let data = {
-      name: username.value,
-      email: email.value,
-      phone: phone.value,
-      address: address.value,
-    };
+    let id = userid.value;
+    let data = [
+      {
+        name: username.value,
+        email: email.value,
+        phone: phone.value,
+        address: address.value,
+      },
+      id,
+    ];
+
     fetch(`${url}/${id}`, {
       method: "put",
       headers: {

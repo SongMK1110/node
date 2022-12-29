@@ -27,9 +27,7 @@ router.get("/:id", (req, res) => {
 
 //등록
 router.post("/", (req, res) => {
-  // let data = req.body;
   let sql = "insert into customers set ?";
-
   pool.query(sql, req.body, function (err, results, fields) {
     if (err) {
       console.log(err);
@@ -40,12 +38,12 @@ router.post("/", (req, res) => {
 
 //수정
 router.put("/:id", (req, res) => {
-  const id = req.params.id;
   let sql = "update customers set ? where id=?";
-  pool.query(sql, req.body, id, function (err, results, fields) {
+  pool.query(sql, req.body, function (err, results, fields) {
     if (err) {
       console.log(err);
     }
+    res.json(results);
   });
 });
 
