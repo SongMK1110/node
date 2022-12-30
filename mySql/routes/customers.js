@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.json(results);
+    res.json(results); // res.json() => string으로 바꿔서 전송
   });
 });
 
@@ -39,11 +39,21 @@ router.post("/", (req, res) => {
 //수정
 router.put("/:id", (req, res) => {
   let sql = "update customers set ? where id=?";
-  pool.query(sql, req.body, function (err, results, fields) {
+  let data = [req.body, req.params.id];
+  pool.query(sql, data, function (err, results, fields) {
+    let resultData = {};
     if (err) {
       console.log(err);
+      throw err;
     }
-    res.json(results);
+    if (results.changedRows > 0) {
+      resultData.result = true;
+      resultData.data = req.body;
+    } else {
+      resultData.result = false;
+    }
+    res.send(resultData);
+    // res.json(results);
   });
 });
 

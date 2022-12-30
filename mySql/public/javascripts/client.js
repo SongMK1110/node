@@ -51,15 +51,12 @@ function insert() {
 function customerUpdate() {
   updbtn.addEventListener("click", function () {
     let id = userid.value;
-    let data = [
-      {
-        name: username.value,
-        email: email.value,
-        phone: phone.value,
-        address: address.value,
-      },
-      id,
-    ];
+    let data = {
+      name: username.value,
+      email: email.value,
+      phone: phone.value,
+      address: address.value,
+    };
 
     fetch(`${url}/${id}`, {
       method: "put",
@@ -70,7 +67,15 @@ function customerUpdate() {
     })
       .then((res) => res.json())
       .then((res) => {
-        selectAll();
+        if (res.result == true) {
+          alert("수정완료");
+          selectAll();
+        } else {
+          alert("수정실패");
+        }
+      })
+      .catch(() => {
+        alert("수정실패");
       });
   });
 }

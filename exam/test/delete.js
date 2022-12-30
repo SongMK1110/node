@@ -12,14 +12,13 @@ const conn = {
 let connection = mysql.createConnection(conn); //DB 커넥션 생성
 connection.connect(); // DB 접속
 
-sql = "SELECT * FROM customers";
-connection.query(sql, function (err, results, fields) {
-  //fields는 컬럼 정보
+let sql = "delete from customers where id = ?";
+let data = 3;
+connection.query(sql, data, function (err, results, fields) {
   if (err) {
-    throw err;
+    console.log(err);
   }
   console.log(results);
-  // console.log(fields);
 });
 
 connection.end(); // DB 접속 종료
