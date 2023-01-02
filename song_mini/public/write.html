@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>write</title>
+    <link rel="stylesheet" href="./stylesheets/board.css" />
+  </head>
+  <body>
+    <h1 class="con">글 작성</h1>
+    <section class="article-detail table-common con row">
+      <!-- <div class="article-writer cell">
+        <div class="writer-icon">이미지</div>
+        <span>작성자</span>
+      </div> -->
+      <table class="cell" border="1">
+        <colgroup>
+          <col width="100px" />
+        </colgroup>
+        <tbody>
+          <tr class="article-title">
+            <th>제목</th>
+            <td><input type="text" name="title" id="title" required /></td>
+          </tr>
+          <tr class="article-info">
+            <th>작성자</th>
+            <td><input type="text" name="writer" id="writer" required /></td>
+          </tr>
+          <tr class="article-body">
+            <th>내용</th>
+            <td colspan="4">
+              <textarea name="text" id="text" cols="50" rows="10"></textarea>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <button type="submit">등록</button>
+    <button><a href="./board.html">뒤로가기</a></button>
+  </body>
+</html>

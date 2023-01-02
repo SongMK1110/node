@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>board</title>
+    <link rel="stylesheet" href="./stylesheets/board.css" />
+  </head>
+  <body>
+    <header class="top-menu con row">
+      <div class="cell-right">
+        <a href="./login.html">로그인</a>
+        <a href="#">회원가입</a>
+        <a href="#">글 목록</a>
+        <a href="./write.html">글 작성</a>
+        <a href="./index.html">드라마 목록</a>
+      </div>
+    </header>
+
+    <h1 class="con">시청 소감</h1>
+    <section class="article-list table-common con">
+      <table border="1">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+          </tr>
+        </thead>
+        <tbody id="list">
+          <tr>
+            <td>내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+            <td>내용4</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <script src="./javascripts/client.js"></script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+  </head>
+  <style>
+    #container {
+      margin: 150px auto;
+      /* text-align: center; */
+    }
+    li {
+      list-style: none;
+      float: left;
+      position: relative;
+      margin-right: 10px;
+    }
+    li img {
+      width: 600px;
+      height: 600px;
+    }
+    .caption {
+      width: 600px;
+      height: 600px;
+      position: absolute;
+      top: 200px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      opacity: 0;
+      transition: 0.5s;
+    }
+    li:hover .caption {
+      transform: translateY(-200px);
+      opacity: 1;
+    }
+    .a {
+      position: relative;
+      left: 600px;
+      /* padding: 10px; */
+    }
+    .myform fieldset {
+      display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+      border: 0; /* 필드셋 테두리 제거 */
+    }
+    .myform input[type="radio"] {
+      display: none; /* 라디오박스 감춤 */
+    }
+    .myform label {
+      font-size: 3em; /* 이모지 크기 */
+      color: transparent; /* 기존 이모지 컬러 제거 */
+      text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+    }
+    /* .myform label:hover {
+      text-shadow: 0 0 0 #a00;
+    }
+    .myform label:hover ~ label {
+      text-shadow: 0 0 0 #a00; 
+    } */
+    .myform fieldset {
+      display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+      direction: rtl; /* 이모지 순서 반전 */
+      border: 0; /* 필드셋 테두리 제거 */
+    }
+    .myform fieldset legend {
+      text-align: left;
+    }
+    .myform input[type="radio"]:checked ~ label {
+      text-shadow: 0 0 0 #a00; /* 마우스 클릭 체크 */
+    }
+  </style>
+  <body>
+    <div id="container">
+      <header></header>
+      <section>
+        <ul>
+          <li class="a">
+            <img src="./images/재벌집.jpg" />
+            <form name="myform" class="myform" method="post" action="./save">
+              <fieldset>
+                <legend></legend>
+                <input type="radio" name="rating" value="5" id="rate1" /><label
+                  for="rate1"
+                  >⭐</label
+                >
+                <input type="radio" name="rating" value="4" id="rate2" /><label
+                  for="rate2"
+                  >⭐</label
+                >
+                <input type="radio" name="rating" value="3" id="rate3" /><label
+                  for="rate3"
+                  >⭐</label
+                >
+                <input type="radio" name="rating" value="2" id="rate4" /><label
+                  for="rate4"
+                  >⭐</label
+                >
+                <input type="radio" name="rating" value="1" id="rate5" /><label
+                  for="rate5"
+                  >⭐</label
+                >
+              </fieldset>
+            </form>
+            <button class="btn"><a href="./board.html">시청 소감</a></button>
+            <div class="caption">
+              <h2>줄거리</h2>
+              <p>
+                순양 家의 충직했던 머슴, 윤현우- 몸과 마음을 다 바친 노력의
+                대가는- 인생... 로그아웃! 그러나!! 그가 눈을 뜬 곳은.. 1987년의
+                대한민국-- 순양 家!! 재벌 집 머슴녀석, 윤현우에서 재벌 집
+                막내아들, 진도준으로 인생... 리부팅!! 누구도 상상하지 못한 반전-
+                인생 2회차가 시작되는데... 헬조선 청춘들의 절망 시그널 -
+                ‘이/생/망’ 이번 생이 망했다?? 그럼, 다음 생은 가능하다는 말?
+                우린 알고 있다. 그런 일은 결코 일어나지 않는다는 걸- 그저 다음
+                생이라도 있어 고단한 내 인생을 구원해 주길 바랄 뿐. 그러니,
+                이/생/망은 아직, 절망의 시그널이 아니다. 우리 청춘들이 이 세상에
+                보내는 간절한 구조 시그널이다. 양극화가 날로 극심해지고,
+                출신성분이 곧 계급이 되는 사회. 부모가 가장 큰 스펙이요, 재능인
+                세상. 태어나는 그 순간, 요람에서 무덤까지... 한 방에 결정
+                난다면-- 고단한 인생, 살아갈 의미가 있을까? 감히 희망을 노래할
+                수 있을까? 누구나 사람이라는 이유만으로 축복받고 존중받아야
+                한다고- 여전히 믿고 있다. 그런 세상을 꿈꾸는 일이 어쩌면
+                환생보다 시간여행보다 빙의보다도- 더 불가능한 판타지라
+                할지라도...
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <footer></footer>
+    </div>
+  </body>
+</html>
