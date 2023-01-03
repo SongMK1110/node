@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
-    <link rel="stylesheet" href="./stylesheets/login.css" />
+    <link rel="stylesheet" href="./stylesheets/sign.css" />
   </head>
   <body>
     <main id="main-holder">
-      <h1 id="login-header">Login</h1>
+      <h1 id="login-header">회원가입</h1>
 
       <div id="login-error-msg-holder">
         <p id="login-error-msg">
@@ -17,7 +17,7 @@
         </p>
       </div>
 
-      <form id="login-form" method="post" action="/login">
+      <form id="login-form">
         <input
           type="text"
           name="username"
@@ -32,8 +32,23 @@
           class="login-form-field"
           placeholder="Password"
         />
-        <input type="submit" value="Login" id="login-form-submit" />
+        <input
+          type="tel"
+          name="tel"
+          id="tel"
+          class="login-form-field"
+          placeholder="Tel"
+        />
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="login-form-field"
+          placeholder="Email"
+        />
+        <input type="button" value="회원가입" id="sign" />
       </form>
     </main>
+    <script src="./javascripts/sign.js"></script>
   </body>
 </html>

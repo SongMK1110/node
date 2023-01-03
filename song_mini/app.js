@@ -3,10 +3,13 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const session = require("express-session");
+const fileStore = require("session-file-store")(session);
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var boardRouter = require("./routes/board");
+var signRouter = require("./routes/sign");
 
 var app = express();
 
@@ -19,10 +22,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: "secret key",
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      httpOnly: true,
+      //secure: true,
+      maxAge: 60000, //밀리초
+    },
+    store: new fileStore(),
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/board", boardRouter);
+app.use("/", signRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
