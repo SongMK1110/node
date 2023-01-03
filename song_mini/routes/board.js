@@ -10,6 +10,7 @@ const sql = {
   delete: "delete from board where no = ?",
 };
 
+// 조회
 router.get("/", (req, res) => {
   pool.query(sql.select, function (err, results, fields) {
     if (err) {
@@ -19,6 +20,7 @@ router.get("/", (req, res) => {
   });
 });
 
+// 글 작성
 router.post("/", (req, res) => {
   // req.body.username =
   pool.query(sql.insert, req.body, function (err, results, fields) {
@@ -29,13 +31,47 @@ router.post("/", (req, res) => {
   });
 });
 
-router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  pool.query(sql.selectOne, id, function (err, results, fields) {
+// 글 상세정보
+router.get("/:no", (req, res) => {
+  const no = req.params.no;
+  pool.query(sql.selectOne, no, function (err, results, fields) {
     if (err) {
       console.log(err);
     }
     res.json(results[0]);
   });
 });
+
+//글 수정
+router.put("/:no", (req, res) => {
+  let data = [req.body, req.params.no];
+  pool.query(sql.update, data, function (err, results, fields) {
+    let resultData = {};
+    if (err) {
+      console.log(err);
+      throw err;
+    }
+    if (results.changedRows > 0) {
+      resultData.result = true;
+      resultData.data = req.body;
+    } else {
+      resultData.result = false;
+    }
+    res.send(resultData);
+    // res.json(results);
+  });
+});
+
+router.delete("/:no", (req, res) => {
+  const no = req.params.no;
+  pool.query(sql.delete, no, function (err, results, fields) {
+    if (err) {
+      console.log(err);
+    }
+    res.statusCode = 200;
+    // res.send("results");
+    res.end();
+  });
+});
+
 module.exports = router;

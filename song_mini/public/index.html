@@ -25,7 +25,7 @@
       width: 600px;
       height: 600px;
       position: absolute;
-      top: 200px;
+      top: 0px;
       text-align: center;
       background-color: rgba(0, 0, 0, 0.5);
       color: #fff;
@@ -33,7 +33,7 @@
       transition: 0.5s;
     }
     li:hover .caption {
-      transform: translateY(-200px);
+      /* transform: translateY(-200px); */
       opacity: 1;
     }
     .a {
@@ -70,6 +70,10 @@
     .myform input[type="radio"]:checked ~ label {
       text-shadow: 0 0 0 #a00; /* 마우스 클릭 체크 */
     }
+    .btn {
+      position: relative;
+      top: 650px;
+    }
   </style>
   <body>
     <div id="container">
@@ -79,7 +83,7 @@
           <li class="a">
             <img src="./images/재벌집.jpg" />
             <form name="myform" class="myform" method="post" action="./save">
-              <fieldset>
+              <!-- <fieldset>
                 <legend></legend>
                 <input type="radio" name="rating" value="5" id="rate1" /><label
                   for="rate1"
@@ -101,9 +105,8 @@
                   for="rate5"
                   >⭐</label
                 >
-              </fieldset>
+              </fieldset> -->
             </form>
-            <button class="btn"><a href="./board.html">시청 소감</a></button>
             <div class="caption">
               <h2>줄거리</h2>
               <p>
@@ -126,6 +129,9 @@
                 할지라도...
               </p>
             </div>
+          </li>
+          <li>
+            <button class="btn"><a href="./login.html">시청 소감</a></button>
           </li>
         </ul>
       </section>
