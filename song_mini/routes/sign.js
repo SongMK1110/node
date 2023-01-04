@@ -11,6 +11,7 @@ const sql = {
   login: "SELECT * FROM sign WHERE username = ? AND password = ?",
 };
 
+//회원가입
 router.post("/sign", (req, res) => {
   pool.query(sql.insert, req.body, function (err, results, fields) {
     if (err) {
@@ -19,6 +20,8 @@ router.post("/sign", (req, res) => {
     res.json(results);
   });
 });
+
+//로그인
 router.post("/login", (req, res) => {
   var username = req.body.username;
   var password = req.body.password;
@@ -51,9 +54,13 @@ router.post("/login", (req, res) => {
   }
 });
 
+//로그아웃
 router.get("/logout", function (req, res) {
   req.session.destroy(function (err) {
-    res.redirect("/");
+    if (err) {
+      console.log(err);
+    }
+    res.send('<script>alert("로그아웃 완료"); location.href="/";</script>');
   });
 });
 module.exports = router;

@@ -1,6 +1,6 @@
 const url = "/sign";
 insert();
-//등록
+//회원가입
 function insert() {
   sign.addEventListener("click", function () {
     let data = {
@@ -19,7 +19,7 @@ function insert() {
       .then((res) => res.json())
       .then(() => {
         alert("회원가입 완료");
-        location.href = "http://localhost:3000/board.html";
+        location.href = "http://localhost:3000/login.html";
       });
   });
 }

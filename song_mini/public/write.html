@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>write</title>
+    <link
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="./stylesheets/board.css" />
   </head>
   <body>
@@ -23,12 +27,12 @@
             <th>제목</th>
             <td><input type="text" name="title" id="title" required /></td>
           </tr>
-          <tr class="article-info">
+          <!-- <tr class="article-info">
             <th>작성자</th>
-            <td>
+            <td id="writer">
               <input type="text" name="username" id="username" required />
             </td>
-          </tr>
+          </tr> -->
           <tr class="article-body">
             <th>내용</th>
             <td colspan="4">
@@ -38,10 +42,13 @@
         </tbody>
       </table>
     </section>
-    <button id="addbtn" onclick="window.location = document.referrer">
-      등록
+    <button id="addbtn" class="btn btn-secondary">등록</button>
+    <button
+      onclick="window.location = document.referrer"
+      class="btn btn-secondary"
+    >
+      뒤로가기
     </button>
-    <button onclick="window.location = document.referrer">뒤로가기</button>
     <script src="./javascripts/write.js"></script>
   </body>
 </html>

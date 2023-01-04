@@ -22,7 +22,8 @@ router.get("/", (req, res) => {
 
 // 글 작성
 router.post("/", (req, res) => {
-  // req.body.username =
+  // console.log(req.body);
+  req.body.username = req.session.username;
   pool.query(sql.insert, req.body, function (err, results, fields) {
     if (err) {
       console.log(err);
@@ -33,11 +34,14 @@ router.post("/", (req, res) => {
 
 // 글 상세정보
 router.get("/:no", (req, res) => {
+  const session_username = req.session.username;
   const no = req.params.no;
   pool.query(sql.selectOne, no, function (err, results, fields) {
     if (err) {
       console.log(err);
     }
+    results[0].test = session_username;
+    console.log(results);
     res.json(results[0]);
   });
 });
@@ -62,6 +66,7 @@ router.put("/:no", (req, res) => {
   });
 });
 
+//글 삭제
 router.delete("/:no", (req, res) => {
   const no = req.params.no;
   pool.query(sql.delete, no, function (err, results, fields) {

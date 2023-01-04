@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>index</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
   </head>
   <style>
     #container {
@@ -70,9 +74,13 @@
     .myform input[type="radio"]:checked ~ label {
       text-shadow: 0 0 0 #a00; /* 마우스 클릭 체크 */
     }
-    .btn {
+    #btn {
       position: relative;
       top: 650px;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
     }
   </style>
   <body>
@@ -131,7 +139,15 @@
             </div>
           </li>
           <li>
-            <button class="btn"><a href="./login.html">시청 소감</a></button>
+            <button id="btn" class="btn btn-secondary">
+              <a href="./login.html">시청 소감</a>
+            </button>
+            <button id="btn" class="btn btn-secondary">
+              <a
+                onclick="window.open('./drama_time.html', 'drama_time','width=700, height=700, top=100, left=900')"
+                >편성표</a
+              >
+            </button>
           </li>
         </ul>
       </section>

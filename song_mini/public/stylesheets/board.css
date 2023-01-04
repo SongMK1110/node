@@ -48,6 +48,7 @@ a:link {
 .cell-right {
   float: right;
   box-sizing: border-box;
+  background-color: black;
 }
 
 .margin-0-auto {
@@ -106,7 +107,7 @@ a:link {
 
 .top-menu a {
   text-decoration: none;
-  color: gray;
+  color: white;
   font-weight: bold;
   font-size: 1.2rem;
 }
@@ -262,4 +263,13 @@ body {
 button {
   position: relative;
   left: 485px;
+}
+a {
+  float: right;
+}
+#user {
+  float: right;
+  position: relative;
+  right: 500px;
+  top: -70px;
 }

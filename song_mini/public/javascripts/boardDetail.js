@@ -3,22 +3,30 @@ const url = "/board";
 boardUpdate();
 boardDelete();
 
+// 글 상세
 const URLSerch = new URLSearchParams(location.search);
 const no = URLSerch.get("no");
 fetch(`${url}/${no}`)
   .then((res) => res.json())
   .then((res) => {
+    console.log(res);
+    if (res.test == res.username) {
+      updbtn.style.display = "";
+      delbtn.style.display = "";
+    }
     title.value = res.title;
-    username.value = res.username;
+    // username.value = res.username;
+    writer.innerHTML = res.username;
     text.value = res.text;
   });
 
+// 수정
 function boardUpdate() {
   updbtn.addEventListener("click", function () {
     let no = URLSerch.get("no");
     let data = {
       title: title.value,
-      username: username.value,
+      // username: username.value,
       text: text.value,
     };
 
@@ -44,6 +52,7 @@ function boardUpdate() {
   });
 }
 
+// 삭제
 function boardDelete() {
   delbtn.addEventListener("click", function () {
     let no = URLSerch.get("no");

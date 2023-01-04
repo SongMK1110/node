@@ -30,7 +30,7 @@ app.use(
     cookie: {
       httpOnly: true,
       //secure: true,
-      maxAge: 60000, //밀리초
+      maxAge: 24 * 60 * 60 * 1000, //밀리초
     },
     store: new fileStore(),
   })

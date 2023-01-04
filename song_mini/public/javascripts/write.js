@@ -1,11 +1,10 @@
 const url = "/board";
 insert();
-//등록
+//글 작성
 function insert() {
   addbtn.addEventListener("click", function () {
     let data = {
       title: title.value,
-      username: username.value,
       text: text.value,
     };
     fetch(url, {
@@ -14,6 +13,11 @@ function insert() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => res.json());
+    })
+      .then((res) => res.json())
+      .then(() => {
+        alert("작성 완료");
+        location.href = "http://localhost:3000/board.html";
+      });
   });
 }
