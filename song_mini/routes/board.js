@@ -16,8 +16,13 @@ router.get("/", (req, res) => {
     if (err) {
       console.log(err);
     }
-    res.json(results); // res.json() => string으로 바꿔서 전송
+    res.json(results);
   });
+});
+
+// 게시판에 유저 정보
+router.get("/user", (req, res) => {
+  res.json(req.session.username);
 });
 
 // 글 작성
