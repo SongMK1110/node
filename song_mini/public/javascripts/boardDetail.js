@@ -9,7 +9,6 @@ const no = URLSerch.get("no");
 fetch(`${url}/${no}`)
   .then((res) => res.json())
   .then((res) => {
-    console.log(res);
     if (res.test == res.username) {
       updbtn.style.display = "";
       delbtn.style.display = "";

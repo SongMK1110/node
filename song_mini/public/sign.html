@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>login</title>
+    <title>sign</title>
     <link rel="stylesheet" href="./stylesheets/sign.css" />
   </head>
   <body>
@@ -24,6 +24,15 @@
           id="username"
           class="login-form-field"
           placeholder="Username"
+          oninput="signCheck()"
+        />
+        <input
+          type="text"
+          name="usernameCheck"
+          id="usernameCheck"
+          class="login-form-field"
+          readonly
+          style="display: none"
         />
         <input
           type="password"
@@ -31,6 +40,13 @@
           id="password"
           class="login-form-field"
           placeholder="Password"
+        />
+        <input
+          type="password"
+          name="repassword"
+          id="repassword"
+          class="login-form-field"
+          placeholder="Password Check"
         />
         <input
           type="tel"

@@ -17,7 +17,7 @@ function insert() {
       .then((res) => res.json())
       .then(() => {
         alert("작성 완료");
-        location.href = "http://localhost:3000/board.html";
+        location.href = "/board.html";
       });
   });
 }

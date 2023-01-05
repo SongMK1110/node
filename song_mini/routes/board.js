@@ -4,10 +4,14 @@ const router = express.Router();
 
 const sql = {
   select: "select * from board",
+  // select: "select * from board ORDERS LIMIT 0, 10",
+  // select1: "select * from board ORDERS LIMIT 10, 10",
+  // select2: "select * from board ORDERS LIMIT 20, 10",
   selectOne: "SELECT * FROM board where no=?",
   insert: "insert into board set ?",
   update: "update board set ? where no=?",
   delete: "delete from board where no = ?",
+  alter: "alter table books auto_increment = ?",
 };
 
 // 조회
@@ -16,9 +20,19 @@ router.get("/", (req, res) => {
     if (err) {
       console.log(err);
     }
+    console.log(results);
     res.json(results);
   });
 });
+
+// router.get("/pagetwo", (req, res) => {
+//   pool.query(sql.select1, function (err, results, fields) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     res.json(results);
+//   });
+// });
 
 // 게시판에 유저 정보
 router.get("/user", (req, res) => {
@@ -46,7 +60,6 @@ router.get("/:no", (req, res) => {
       console.log(err);
     }
     results[0].test = session_username;
-    console.log(results);
     res.json(results[0]);
   });
 });

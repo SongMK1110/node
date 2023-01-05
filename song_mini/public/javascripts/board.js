@@ -24,7 +24,7 @@ function selectAll() {
 function selectDetail() {
   list.addEventListener("click", function (ev) {
     let no = ev.target.closest("tr").getAttribute("data-id");
-    location.href = "http://localhost:3000/boardDetail.html?no=" + no;
+    location.href = "/boardDetail.html?no=" + no;
   });
 }
 

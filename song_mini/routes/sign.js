@@ -4,7 +4,8 @@ const router = express.Router();
 
 const sql = {
   select: "select * from sign",
-  selectOne: "SELECT * FROM sign where id=?",
+  selectOne: "SELECT * FROM sign where username=?",
+  selectUser: "select username from sign",
   insert: "insert into sign set ?",
   update: "update sign set ? where id=?",
   delete: "delete from sign where id = ?",
@@ -14,6 +15,31 @@ const sql = {
 //회원가입
 router.post("/sign", (req, res) => {
   pool.query(sql.insert, req.body, function (err, results, fields) {
+    if (err) {
+      console.log(err);
+    }
+    res.json(results);
+  });
+});
+
+// router.post("/sign", (req, res) => {
+//   // pool.query(sql.selectOne, req.body.username, function(err, results, fields){
+//   //   if(err){
+//   //     console.log(err);
+//   //   }
+
+//   // })
+//   let username = req.
+//   pool.query(sql.insert, req.body, function (err, results, fields) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     res.json(results);
+//   });
+// });
+
+router.get("/sign/Check", (req, res) => {
+  pool.query(sql.selectUser, function (err, results, fields) {
     if (err) {
       console.log(err);
     }
