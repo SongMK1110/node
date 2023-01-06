@@ -20,14 +20,14 @@ function selectAll() {
       }
     });
 }
-
+// 글 상세 조회
 function selectDetail() {
   list.addEventListener("click", function (ev) {
     let no = ev.target.closest("tr").getAttribute("data-id");
     location.href = "/boardDetail.html?no=" + no;
   });
 }
-
+//게시판 유저 정보
 function loginUser() {
   fetch(`${url}/user`)
     .then((res) => res.json())

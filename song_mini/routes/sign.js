@@ -22,22 +22,7 @@ router.post("/sign", (req, res) => {
   });
 });
 
-// router.post("/sign", (req, res) => {
-//   // pool.query(sql.selectOne, req.body.username, function(err, results, fields){
-//   //   if(err){
-//   //     console.log(err);
-//   //   }
-
-//   // })
-//   let username = req.
-//   pool.query(sql.insert, req.body, function (err, results, fields) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     res.json(results);
-//   });
-// });
-
+//회원가입 중복 검사
 router.get("/sign/Check", (req, res) => {
   pool.query(sql.selectUser, function (err, results, fields) {
     if (err) {

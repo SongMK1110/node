@@ -7,7 +7,6 @@ function insert() {
     let data = {
       username: username.value,
       password: password.value,
-      repassword: repassword.value,
       tel: tel.value,
       email: email.value,
     };
@@ -31,22 +30,21 @@ function insert() {
   });
 }
 
+//회원가입 중복 검사
 function signCheck() {
   fetch(`${url}/Check`)
     .then((res) => res.json())
     .then((res) => {
       for (let i = 0; i < res.length; i++) {
         if (username.value == res[i].username) {
-          usernameCheck.style = "display : block";
+          usernameCheck.style = "display : ''";
           usernameCheck.value = "중복된 유저가 있습니다.";
           usernameCheck.style = "color: red";
           sign.style = "display : none";
           break;
         } else {
           usernameCheck.style = "display : none";
-          sign.style = "display : block";
-          // check = false;
-          // console.log(check);
+          sign.style = "display : ''";
         }
       }
     });

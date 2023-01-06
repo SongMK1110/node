@@ -14,7 +14,6 @@ fetch(`${url}/${no}`)
       delbtn.style.display = "";
     }
     title.value = res.title;
-    // username.value = res.username;
     writer.innerHTML = res.username;
     text.value = res.text;
   });
